@@ -1,0 +1,121 @@
+{% extends 'admin_templates/base_template.html' %}
+{% block main_content %}
+<!-- Main content -->
+<section class="content" style="margin-top: 30px;">
+    <div class="container-fluid">
+        <!--<div class="section-title">
+
+            <p style="font-size: large;">
+                <b>Products.</b>
+            </p>
+        </div><br>-->
+        {{ total_price_per_product }}
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr style="color: lightslategray; font-family:'Times New Roman', Times, serif;
+                                font-size: larger;">
+                                    <th><b>Product Name</b></th>
+                                    <th><b>Stock(Unsold)</b></th>
+                                    <!--<th>PRODUCT IMAGE</th>
+                                    <th><b>Unit Cost Price(GHS)</b></th>
+                                    <th><b>Unit Selling Price(GHS)</b></th>-->
+
+                                    <!--<th><b>Total Cost Price(GHS)</b></th>
+                                    <th><b>Total Selling Price(GHS)</b></th>-->
+                                    <!--<th>PER STOCK PROFIT(GHS)</th>-->
+                                    <th><b>Total Stock Sold</b></th>
+                                    <th><b>Weekly Sales</b></th>
+
+                                    <th><b>Profit On Weekly Sales</b></th>
+                                    <th><b>Date Updated</b></th>
+                                    <th><b>Action</b></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% if products %}
+                                {% for product in products %}
+                                <tr>
+                                    <td><b>{{ product.product_name }}</b></td>
+                                    <!--<td><img src="{{ product.product_pic }}" alt="staff profile pic"
+                                            style="height: 100px; width: 110px;"></td>-->
+                                    <td>{{ product.new_stock }}</td>
+                                    <!--<td>{{ product.cost_price }}</td>
+                                    <td>{{ product.selling_price }}</td>-->
+                                    <!--<td>{{ product.total_cost_price }}</td>
+                                    <td>{{ product.total_selling_price }}</td>-->
+                                    <!--<td>{{ product.total_profit_per_each_stock }}</td>-->
+                                    <td>{{ product.total_stock_sold }}</td>
+                                    <td>{{ product.stock_sold }}</td>
+
+                                    <td>{{ product.total_profit_on_stock_sold }}</td>
+                                    <td>{{ product.updated_at }}</td>
+
+
+                                    <td><a href="/update_product/{{ product.id }}" class="btn btn-secondary">Update</a>
+                                    </td>
+                                    <!--<td>
+                                        <form method="POST" action=""
+                                            onclick="return confirm('Are you sure you want to delete {{ product.product_name }}?')">
+                                            {% csrf_token %}
+                                            <input type="submit" name="delete" value="Delete" class="btn btn-danger">
+
+                                        </form>
+                                    </td>-->
+                                </tr>
+                                {% endfor %}
+                                <tr style="font-size: larger;">
+
+                                    <td></td>
+
+
+                                    <td style="color: lightslategray; font-family:'Times New Roman', Times, serif;"><b>Total stock cost price</b></td>
+
+                                    <!--<td><b>Total stock selling price</b></td>-->
+                                    <td style="color: lightslategray; font-family: 'Times New Roman', Times, serif;"><b>Weekly Sales</b></td>
+                                    <td style="color: lightslategray; font-family: 'Times New Roman', Times, serif;"><b>Profit On Weekly Sales</b></td>
+                                    <td style="color: lightslategray; font-family: 'Times New Roman', Times, serif;"><b>Profit On Total Sales</b></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="font-size:larger;">
+
+
+                                    <td></td>
+                                    <td style="color: lightslategray; font-family: 'Times New Roman', Times, serif;"><b><u>GHS {{ overall_cost_price }}</u></b></td>
+                                    <!--<td><b><u>GHS {{ overall_selling_price }}</u></b></td>-->
+                                    <td style="color: lightslategray; font-family: 'Times New Roman', Times, serif;"><b><u>GHS {{ total_amount_of_stock_sold }}</u></b></td>
+                                    <td style="color: lightslategray; font-family: 'Times New Roman', Times, serif;"><b><u>GHS {{ overall_profit_from_sales }}</u></b></td>
+
+                                    <td style="color: lightslategray; font-family:'Times New Roman', Times, serif"><b><u>GHS {{ total_profit_on_overall_sales }}</u></b></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                {% else %}
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="color: red;"><b>Your stock is currently empty!!</b></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.content -->
+{% endblock main_content %}

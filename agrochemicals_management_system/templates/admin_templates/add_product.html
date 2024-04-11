@@ -1,0 +1,35 @@
+{% extends 'admin_templates/base_template.html' %}
+
+{% block main_content %}
+<main id="main" style="margin-top: 100px;">
+
+    <section id="services" class="services section-bg" style="background: white;">
+        <div class="container">
+
+            <div class="section-title">
+                <!--<h2 data-aos="fade-in" class="aos-init aos-animate">Enroll A Student</h2-->
+                <p data-aos="fade-in" class="aos-init aos-animate" style="font-size: large;">Fill and Submit the form to
+                    add a product.</p>
+
+            </div>
+
+            <div class="row">
+                {% url 'add_product_save' as action_path %}
+                {% include 'admin_templates/add_product_form.html' with form=form action_path=action_path button_text="Submit" %}
+
+
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+</main><!-- End #main -->
+{% endblock main_content %}
+{% block custom_js %}
+<script>
+    
+</script>
+{% endblock custom_js %}

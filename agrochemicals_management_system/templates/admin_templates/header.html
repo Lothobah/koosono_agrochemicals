@@ -1,0 +1,71 @@
+{% load static %}
+
+<!-- ======= Header ======= -->
+<header id="header" style="height: 65px; background-color: whitesmoke;
+box-shadow: 2px 3px 2px gray;">
+    <div class="container d-flex align-items-center justify-content-between" style="height: 40px;">
+
+        <div class="logo">
+            <h1 style="text-transform: capitalize;"><a href="#" class="manage-staff-link">
+                <img src="{% static "assets/img/logo3.png"%}" class="logo-image" alt="User Image"><b style="color: black;">Koosono Agrochemicals | Admin</b><span>.</span>
+
+                </a>
+
+            </h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!--<a href="index.html"><img src="{% static "assets/img/king.jpg" %}" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav id="navbar" class="navbar" style="color: black;">
+            <ul style="color: black;">
+                
+                <!--<li class="dropdown">
+                    {% url 'manage' as manage %}
+                    <a class="{% if request.path == manage %} active {% endif %}" href="#">
+                        <span>Hello {{ user.first_name }} {{ user.last_name }} !</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li>
+
+                            {% url 'admin_profile' as admin_profile %}
+                            
+                            <a class="nav-link scrollto {% if request.path == admin_profile %} active {% endif %}"
+                                href="">Profile</a>
+                        </li>
+                        
+                        <li><a href="#">Change Password</a></li>
+                        
+                        <li>
+                            {% url 'about' as about %}
+                            <a class="{% if request.path == about %} active {% endif %}" 
+                            href="">
+                                About</a>
+                        </li>
+                    </ul>
+                </li>-->
+                <li>
+                    {% url 'admin_profile' as admin_profile %}
+                    <a class="nav-link scrollto {% if request.path == admin_profile %} active {% endif %}" href="{% url 'admin_profile' %}"
+                        style="color: black;">Profile</a>
+                </li>
+                <li>
+                    {% url 'products' as products %}
+                    <a class="nav-link scrollto {% if request.path == products %} active {% endif %}" href="{% url 'products' %}"
+                     style="color: black;">Home</a>
+                </li>
+                <li>
+                    {% url 'add_product' as add_product %}
+                    <a class="nav-link scrollto {% if request.path == add_product %} active {% endif %}"
+                        href="{% url 'add_product' %}" style="color: black;">Add Product</a>
+                </li>
+                <li>
+                    {% url 'do_logout' as do_logout %}
+                    <a class="nav-link scrollto {% if request.path == do_logout %} active {% endif %}"
+                        href="{% url 'do_logout' %}" style="color: black;">Log Off</a>
+                </li>
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+
+    </div>
+</header>
